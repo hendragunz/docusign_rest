@@ -913,7 +913,8 @@ module DocusignRest
         eventNotification:  get_event_notification(options[:event_notification]),
         templateRoles:      get_template_roles(options[:signers]),
         customFields:       options[:custom_fields],
-        allowReassign:      options[:allow_reassign]
+        allowReassign:      options[:allow_reassign],
+        carbonCopies:       get_carbon_copies(options[:carbon_copies], options[:signers].size)
       }.to_json
 
       uri = build_uri("/accounts/#{acct_id}/envelopes")
